@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Kalkulators</h1>
+    <input type="number" name="num1" id="num1" placeholder="1.Skaitlis" />
+    <input type="text" name="operator" id="operator" placeholder="Operātors" />
+    <input type="number" name="num2" id="num2" placeholder="2.Skaitlis" />
+    <button type="reset">Notīrīt</button>
+    <button id="btn">Rēķināt</button>
+
+    <script>
+      function operatorPLUS(operator, number1, number2) {
+        if (operator === "+") {
+          return num1 + num2;
+        } else {
+          return "Nederīgs operātors";
+        }
+      }
+
+      const btn = document.querySelector("#btn");
+      const firstNumberInput = document.getElementById("num1");
+      const operatorInput = document.getElementById("operator");
+      const secondNumberInput = document.getElementById("num2");
+
+      btn.addEventListener("click", handleClick);
+      function handleClick() {
+        let firstNumberValue = firstNumberInput.value;
+        let secondNumberValue = firstNumberInput.value;
+        let operatorValue = operatorInput.value;
+      }
+    </script>
+  </body>
+</html>
