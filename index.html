@@ -10,28 +10,52 @@
     <input type="number" name="num1" id="num1" placeholder="1.Skaitlis" />
     <input type="text" name="operator" id="operator" placeholder="Operātors" />
     <input type="number" name="num2" id="num2" placeholder="2.Skaitlis" />
-    <button type="reset">Notīrīt</button>
-    <button id="btn">Rēķināt</button>
+    <button id="btnclear">Notīrīt</button>
+    <button id="btn">Rēķināt</button><br />
+    <p id="output"></p>
 
     <script>
-      function operatorPLUS(operator, number1, number2) {
-        if (operator === "+") {
-          return num1 + num2;
-        } else {
-          return "Nederīgs operātors";
-        }
-      }
-
       const btn = document.querySelector("#btn");
+      const btnclear = document.querySelector("#btnclear");
       const firstNumberInput = document.getElementById("num1");
       const operatorInput = document.getElementById("operator");
       const secondNumberInput = document.getElementById("num2");
+      const outputContainer = document.getElementById("output");
 
       btn.addEventListener("click", handleClick);
+      btnclear.addEventListener("click", handleClear);
       function handleClick() {
-        let firstNumberValue = firstNumberInput.value;
-        let secondNumberValue = firstNumberInput.value;
+        let firstNumberValue = parseFloat(firstNumberInput.value);
+        let secondNumberValue = parseFloat(secondNumberInput.value);
         let operatorValue = operatorInput.value;
+        let result;
+
+        switch (operatorValue) {
+          case "+":
+            result = firstNumberValue + secondNumberValue;
+            break;
+
+          case "-":
+            result = firstNumberValue - secondNumberValue;
+            break;
+
+          case "/":
+            result = firstNumberValue / secondNumberValue;
+            break;
+
+          case "*":
+            result = firstNumberValue * secondNumberValue;
+            break;
+
+          default:
+            console.log("nederīgs operātors");
+            return;
+        }
+
+        outputContainer.innerText = `Rezultāts: ${result}`;
+      }
+      function handleClear() {
+        outputContainer.innerText = "";
       }
     </script>
   </body>
